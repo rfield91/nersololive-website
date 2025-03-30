@@ -1,6 +1,7 @@
 "use client";
 
 import type { ClassResult } from "~/app/_common/types";
+import React from "react";
 
 type TrophiesProps = {
     results: Record<string, ClassResult[]>;
@@ -38,9 +39,9 @@ export default function Trophies({ results }: TrophiesProps) {
                     const prevGroup = index > 0 ? trophyResults[index - 1]?.carClassGroup : null;
                     
                     return (
-                        <>
+                        <React.Fragment key={`${result.carClassGroup}-${result.position}`}>
                             {(!prevGroup || currentGroup !== prevGroup) && (
-                                <div className="text-xl font-bold mt-4">{result.carClassGroup}</div>
+                                <div className="text-xl font-bold mt-4">{result.carClassGroup} <span className="text-xs text-gray-400 float-right mt-2">Participants: {result.totalInClass}</span></div>
                             )}
                             <div className="ml-4 flex flex-col">
                                 <div className="text-md">
@@ -50,7 +51,7 @@ export default function Trophies({ results }: TrophiesProps) {
                                     {result.car} - {bestRun ? bestRun.time.toFixed(3) : 'N/A'} {result.runInfo.toNextInClass ? `(+${result.runInfo.toNextInClass.toFixed(3)})` : ''}
                                 </div>
                             </div>
-                        </>
+                        </React.Fragment>
                     );
                 })}
             </div>
