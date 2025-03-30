@@ -17,6 +17,15 @@ const customJestConfig = {
   transformIgnorePatterns: [
     '/node_modules/(?!superjson|@trpc)',
   ],
+  collectCoverageFrom: [
+    'src/**/*.{js,jsx,ts,tsx}',
+    '!src/**/*.d.ts',
+    '!**/node_modules/**',
+    '!**/__tests__/**',
+    '!**/coverage/**',
+  ],
+  coverageDirectory: 'coverage',
+  coverageReporters: ['text', 'lcov', 'html'],
 }
 
 // createJestConfig is exported this way to ensure that next/jest can load the Next.js config which is async

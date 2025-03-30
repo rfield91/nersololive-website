@@ -6,8 +6,8 @@ jest.mock('next/navigation', () => ({
   useRouter: () => ({
     refresh: jest.fn(),
     push: jest.fn(),
-    back: jest.fn(),
   }),
+  usePathname: () => '',
 }))
 
 // Mock trpc

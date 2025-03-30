@@ -69,8 +69,9 @@ A modern web application built with the [T3 Stack](https://create.t3.gg/) to dis
 - `npm run build` - Build for production
 - `npm run start` - Start production server
 - `npm run lint` - Run ESLint
-- `npm run test` - Run unit tests
-- `npm run test:watch` - Run unit tests in watch mode with code coverage
+- `npm test` - Run unit tests once
+- `npm run test:watch` - Run unit tests in watch mode
+- `npm run test:coverage` - Run unit tests with coverage report
 
 ## Testing and Pre-commit Hooks
 
@@ -130,3 +131,37 @@ The application is automatically deployed to Vercel when changes are pushed to t
 ## License
 
 This project is private and proprietary.
+
+## Testing
+
+### Running Tests
+
+The project uses Jest and React Testing Library for testing. There are several test commands available:
+
+```bash
+# Run tests once
+npm test
+
+# Run tests in watch mode (development)
+npm run test:watch
+
+# Run tests with coverage report
+npm run test:coverage
+```
+
+The coverage report will be generated in the `coverage` directory and includes:
+- Terminal summary
+- Detailed HTML report (`coverage/lcov-report/index.html`)
+- lcov report for CI/CD integration
+
+### Test Files Location
+
+Tests are located next to the files they test in `__tests__` directories. For example:
+```
+src/app/
+  ├── __tests__/           # Tests for app-level components
+  ├── _components/
+  │   ├── __tests__/      # Tests for shared components
+  │   └── ...
+  └── ...
+```
