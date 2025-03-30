@@ -40,9 +40,9 @@ const ClassResults = ({ results, displayMode }: ClassResultsProps) => {
 
     const classResults = classes.map((classKey) => {
         // hide elements that are not selected filters
-        // if (filteredClasses.length > 0 && !filteredClasses.includes(classKey)) {
-        //     return null;
-        // }
+        if (filteredClasses.length > 0 && !filteredClasses.includes(classKey)) {
+            return null;
+        }
         return (
             <IndividualClassResults
                 className={classKey}

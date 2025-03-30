@@ -1,5 +1,6 @@
-import type { PaxResultsJson, RunWork, UtilityData } from "~/app/_common/types";
+import type { PaxResultsJson, RunWork, UtilityData, DisplayMode, ClassResultsJson, ClassResult } from "~/app/_common/types";
 import RunProgression from "~/app/_components/live/utils/run-progression";
+import IsToday from "~/app/_utils/is-today";
 import { env } from "~/env";
 
 async function getUtilityData(): Promise<UtilityData | null> {
@@ -25,6 +26,16 @@ export default async function Live() {
     const data = await getUtilityData();
 
     if (data === null) return <main>No utility data available.</main>;
+
+    const eventDate = new Date(data.runWorkData.timestamp);
+
+    if (!IsToday(eventDate)) {
+        return (
+            <div className="mx-2 mb-5 mt-5 text-center">
+                Utils will be available on the day of the event.
+            </div>
+        );
+    }
 
     return (
         <main>

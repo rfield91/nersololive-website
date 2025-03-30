@@ -21,8 +21,10 @@ export default function LiveResultsLayout({
             link: "/live/raw",
         },
         {
-            name: "Work/Run",
-            link: "/live/workrun",
+            // Trophies will display after 4pm. We cannot use the event time because it is not available on initilaization.
+            // Work/Run doesnt really serve a purpose after lunch.
+            name: new Date().getHours() >= 12 ? "Trophies" : "Work/Run",
+            link: new Date().getHours() >= 12 ? "/live/trophies" : "/live/workrun",
         },
         {
             name: "Utils",
