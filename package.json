@@ -9,7 +9,7 @@
     "lint": "next lint",
     "start": "next start",
     "test": "jest",
-    "test:watch": "jest --watch",
+    "test:watch": "jest --watch --coverage",
     "prepare": "husky"
   },
   "dependencies": {
