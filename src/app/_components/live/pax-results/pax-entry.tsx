@@ -4,7 +4,7 @@ const PaxEntry = ({ entry }: { entry: ClassResult }) => {
     const best = entry.runInfo.runs.find((e) => e.isBest);
 
     return (
-        <div className="m-2 bg-white text-black shadow-lg lg:mx-0">
+        <div data-testid="pax-entry" className="m-2 bg-white text-black shadow-lg lg:mx-0">
             <div className="grid grid-cols-12 gap-1">
                 <div className="col-span-2 text-center">
                     <div className="text-xs text-slate-600">PAX</div>

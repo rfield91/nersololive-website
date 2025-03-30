@@ -3,7 +3,7 @@
 import { useState } from "react";
 import type { RunWork } from "~/app/_common/types";
 import IsToday from "~/app/_utils/is-today";
-import WorkFunFilter from "./work-run-filter";
+import WorkRunFilter from "./work-run-filter";
 
 type WorkRunOrderProps = {
     runWork: RunWork;
@@ -57,7 +57,7 @@ export function WorkRunOrder({
                     </strong>
                 </p>
             </div>
-            <WorkFunFilter
+            <WorkRunFilter
                 classes={Object.keys(runWork)}
                 selectedClass={selectedClass}
                 handleSelectClass={(newClass) => {
