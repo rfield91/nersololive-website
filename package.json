@@ -7,7 +7,9 @@
     "build": "next build",
     "dev": "next dev",
     "lint": "next lint",
-    "start": "next start"
+    "start": "next start",
+    "test": "jest",
+    "test:watch": "jest --watch --coverage"
   },
   "dependencies": {
     "@t3-oss/env-nextjs": "^0.7.1",

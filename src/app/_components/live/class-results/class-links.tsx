@@ -14,7 +14,7 @@ const ClassLinks = ({
     clearFilters,
 }: ClassLinksProps) => {
     const noSelected = !filteredClasses.length;
-    const showStyle = "bg-[#6505eb] text-white";
+    const showStyle = "bg-[#6505eb] text-white border border-[#6505eb]";
     const hideStyle = "bg-white text-[#6505eb] border border-[#6505eb]";
 
     const classLinks = classes.map((c) => {

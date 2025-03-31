@@ -3,7 +3,6 @@ import type {
     HeatProgression,
     RunWork,
 } from "~/app/_common/types";
-import IsToday from "~/app/_utils/is-today";
 
 const RunProgression = ({
     runWorkData: { runWork, timestamp },
@@ -62,28 +61,21 @@ const RunProgression = ({
                 runCounts[numberOfRuns].push(`${data.number} ${data.carClass}`);
             });
 
-            const totalRuns = maxRuns * cars.length;
+            // Calculate expected runs based on the current heat state
+            // If most cars have completed a run, that's the expected run count
+            const expectedRuns = Math.max(1, maxRuns);
+            const totalRuns = expectedRuns * cars.length;
 
             return {
                 heat: number,
                 runCounts,
-                maxRuns,
+                maxRuns: expectedRuns,
                 totalRuns,
                 totalCompleted,
                 percentComplete: Math.ceil((totalCompleted / totalRuns) * 100),
             };
         },
     );
-
-    const eventDate = new Date(timestamp);
-
-    if (!IsToday(eventDate)) {
-        return (
-            <div className="mx-2 mb-5 mt-5 text-center">
-                Utils will be available on the day of the event.
-            </div>
-        );
-    }
 
     return (
         <div className="mx-2 mb-5 mt-5">

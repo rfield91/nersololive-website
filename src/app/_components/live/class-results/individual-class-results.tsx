@@ -23,7 +23,7 @@ const IndividualClassResults = ({
 
     return (
         <div key={className} id={className}>
-            <h2 className="cursor-pointer p-2 text-center text-lg font-bold tracking-widest text-white">
+            <h2 className="cursor-pointer p-1 text-center text-lg font-bold tracking-widest text-white">
                 <Link href={`#${className}`}>{className}</Link>
             </h2>
 
