@@ -6,7 +6,7 @@ interface WorkRunFilterProps {
     handleSelectClass: (c: string) => void;
 }
 
-const WorkFunFilter = ({
+const WorkRunFilter = ({
     classes,
     selectedClass,
     handleSelectClass,
@@ -36,4 +36,4 @@ const WorkFunFilter = ({
     );
 };
 
-export default WorkFunFilter;
+export default WorkRunFilter;
